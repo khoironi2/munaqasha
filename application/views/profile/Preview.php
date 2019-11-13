@@ -256,9 +256,9 @@
 									<?php } else { ?>
 										<img src="<?php echo base_url('assets/images/resources/userdefault.png')?>" alt="Gambar Profile" height="130px">
 									<?php } ?>
-											<div class="add-dp" id="OpenImgUpload">
+											<!-- <div class="add-dp" id="OpenImgUpload">
 											<a class="post_project" href="#" title=""><i class="fas fa-camera"></i></a>
-										    </div>
+										    </div> -->
 										</div><!--user-pro-img end-->
 										<div class="user_pro_status">
 											<ul class="flw-status">
