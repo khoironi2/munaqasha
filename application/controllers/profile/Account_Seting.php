@@ -24,31 +24,16 @@
 		}
 
 
-		public function updateAva() {
-		//CONFIGURASI UPLOAD IMAGE
-		$config['upload_path'] 		= './assets/images/upload/profile';
-		$config['allowed_types'] 	= 'jpg|png|svg';
-		$config['max_size'] 		= '12000';
-		$this->upload->initialize($config);
-		$this->load->library('upload', $config);
+		public function update() {
+		
+		$data = array('user_id' 				=> $this->session->userdata('user_id'),
+					  'nama_lengkap'			=> $this->input->post('nama_lengkap'),
+					  'city'					=> $this->input->post('city'));
 
-		//PROSES UPLOAD IMAGE
-		if(! $this->upload->do_upload('avapelamar')) {
-			$data['errors'] 	= $this->upload->display_errors();
-			print_r($data);
-		} else {
-
-			$upload_data = array('uploads' =>$this->upload->data());
-
-			$data = array('user_ava' => $upload_data['uploads']['file_name']);
-
-			$user_id = $this->session->userdata('user_id');
-
-			$this->Model_user->updateData($user_id, $data);
-
-			redirect(site_url('profile/Profile'));
-
-		}
+		$user_id = $this->session->userdata('user_id');
+		$this->Model_user->updateData($user_id, $data);
+		$this->session->set_flashdata('sukses', 'Berhasil Mengubah Data');
+		redirect(site_url('profile/Account_Seting'));
 	}
 
 

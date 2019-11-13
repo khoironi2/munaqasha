@@ -252,7 +252,7 @@
 								<div class="tab-pane fade show active" id="nav-acc" role="tabpanel" aria-labelledby="nav-acc-tab">
 									<div class="acc-setting">
 										<h3>Account Setting</h3>
-										<form>
+										<form action="<?php echo site_url('profile/Account_Seting/update') ?>" method="POST">
 											<div class="cp-field">
 												<h5>Nama lengkap</h5>
 												<div class="cpp-fiel">
