@@ -30,6 +30,17 @@ class Model_user extends CI_Model {
 		return $result->row();
 	}
 
+	function getDataUserById($user) {
+		$this->db->select('*');
+		$this->db->from('tbl_user');
+		$this->db->where('user_id', $user);
+
+		$result = $this->db->get();
+
+		return $result->row();
+	}
+
+
 
 	function getLogin($email, $password) {
 		$this->db->select('*');

@@ -23,6 +23,13 @@
 			}
 		}
 
+		public function preview($user) {
+	      $user_id = $this->session->userdata('user_id');
+	      $data['datauser'] = $this->Model_user->getDataById($user_id);
+	      $data['preview'] = $this->Model_user->getDataUserById($user);
+	      $this->load->view('profile/Preview', $data);
+	    }
+
 
 		public function updateAva() {
 		//CONFIGURASI UPLOAD IMAGE

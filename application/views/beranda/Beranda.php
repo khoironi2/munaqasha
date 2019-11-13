@@ -276,7 +276,9 @@
 											<div class="suggestion-usd">
 												<img src="<?php echo base_url('assets/images/upload/profile/'.$sug->user_ava)?>" alt="" height="45px">
 												<div class="sgt-text">
+													<a href="<?php echo site_url('profile/Profile/preview/'.$sug->user_id) ?>">
 													<h4><?php echo $sug->nama_lengkap; ?></h4>
+													</a>
 													<span>Graphic Designer</span>
 												</div>
 												<span><i class="la la-plus"></i></span>
