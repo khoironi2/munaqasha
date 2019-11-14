@@ -13,10 +13,21 @@ class Model_post extends CI_Model {
 
 	public function getData() {
 		$this->db->select('*');
-		$this->db->from('tbl_user');
+		$this->db->from('tbl_post');
+		$this->db->join('tbl_user','tbl_user.user_id=tbl_post.user_id');
+		$this->db->join('tbl_komentar_post','tbl_komentar_post.post_id=tbl_post.post_id','left');
+		$this->db->group_by('tbl_komentar_post.post_id');
 		
 		$result = $this->db->get();
 
+		return $result->result();
+	}
+	public function getDataKomentar() {
+		$this->db->select('*');
+		$this->db->from('tbl_komentar_post');
+		$this->db->join('tbl_user','tbl_user.user_id=tbl_komentar_post.user_id','right');
+		$this->db->join('tbl_post','tbl_post.post_id=tbl_komentar_post.post_id','right');
+		$result = $this->db->get();
 		return $result->result();
 	}
 
