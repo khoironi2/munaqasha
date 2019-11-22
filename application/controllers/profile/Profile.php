@@ -17,6 +17,8 @@
 			if($this->session->userdata('level')==='2'){
 				$user_id = $this->session->userdata('user_id');
 				$data['datauser'] = $this->Model_user->getDataById($user_id);
+				$data['pos2'] = $this->Model_post->getDataPostUser($user_id);
+	   		    $data['post'] = $this->db->get_where('tbl_post', ['user_id' => $user_id])->result_array();
 				$this->load->view('profile/Profile',$data);
 			}else{
 				redirect('auth/logout');
@@ -27,6 +29,9 @@
 	      $user_id = $this->session->userdata('user_id');
 	      $data['datauser'] = $this->Model_user->getDataById($user_id);
 	      $data['preview'] = $this->Model_user->getDataUserById($user);
+	      $data['pos2'] = $this->Model_post->getDataByUser($user);
+	      $data['post'] = $this->db->get_where('tbl_post', ['user_id' => $user])->result_array();
+       	  // $data['post2']  = $this->db->get_where('tbl_user', ['user_id' => $user])->num_rows();
 	      $this->load->view('profile/Preview', $data);
 	    }
 

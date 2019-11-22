@@ -41,6 +41,7 @@
                             'user_id' => $user['user_id'],
                             'email' => $user['email'],
                             'nama_lengkap' => $user['nama_lengkap'],
+                            'user_ava' => $user['user_ava'],
                             'status' => $user['status'],
                             'level' => $user['level'],
                              'logged_in' => TRUE

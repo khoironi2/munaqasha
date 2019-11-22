@@ -755,17 +755,7 @@
 <script type="text/javascript" src="<?php echo base_url('assets/js/script.js') ?>"></script>
 <script src="https://kit.fontawesome.com/949a216ecb.js" crossorigin="anonymous"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript">
-      setInterval(function(){auto_refresh_function();}, 1000);
-      
-        function auto_refresh_function() {
-          $('#load_content').load('http://localhost/munaqasha/beranda/Beranda/LoadPost');
-           // $('#LoadUserLive').load('http://localhost/simpontren/welcome/LoadUserActive');
-        }
-        
-        
-</script>
+
 
 </body>
 </html>
