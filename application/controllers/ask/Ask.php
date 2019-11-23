@@ -14,19 +14,19 @@
 	}	
    	
 
-  	public function read($post_id){
+  	public function read($ask_id){
   		if ($this->session->userdata('level')==='2') {
   			
   		$user_id = $this->session->userdata('user_id');
 		$data['datauser'] = $this->Model_user->getDataById($user_id);
 		$data['sugest'] 	= $this->Model_user->getData();
-		$data['postbyid'] 	= $this->Model_post->getDataById($post_id);      
-        $data['commentars'] = $this->db->get_where('tbl_komentar_post', ['post_id' => $post_id])->result_array();
-        $data['commentar']  = $this->db->get_where('tbl_komentar_post', ['post_id' => $post_id])->num_rows();
+		$data['askbyid'] 	= $this->Model_ask->getDataById($ask_id);      
+        // $data['commentars'] = $this->db->get_where('tbl_komentar_post', ['post_id' => $post_id])->result_array();
+        // $data['commentar']  = $this->db->get_where('tbl_komentar_post', ['post_id' => $post_id])->num_rows();
         $this->form_validation->set_rules('komentar_post', 'komentar_post', 'required');
 
         if ($this->form_validation->run() == false){
-            $this->template->load('beranda/BerandaPost','beranda/data/post', $data);
+            $this->template->load('ask/Ask','ask/data/Ask', $data);
         } else {
         	date_default_timezone_set("ASIA/JAKARTA");
             $nama_lengkap_post = $this->session->userdata('nama_lengkap');
