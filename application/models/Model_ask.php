@@ -57,7 +57,7 @@ class Model_ask extends CI_Model {
 		// $this->db->where(array('tbl_post.post_id' 		=> $post_id, 
 		// 					   'tbl_user.user_id' 	=> $user_id));
 		$this->db->join('tbl_user','tbl_user.user_id=tbl_ask.user_id');
-		// $this->db->join('tbl_komentar_post','tbl_komentar_post.post_id=tbl_post.post_id','left');
+		$this->db->join('tbl_ask_categories','tbl_ask_categories.categories_ask_id=tbl_ask.categories_ask_id','left');
 		
 		$result = $this->db->get();
 
