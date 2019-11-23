@@ -20,6 +20,8 @@
 		  $data['datauser'] = $this->Model_user->getDataById($user_id);
 		  $data['sugest'] 	= $this->Model_user->getData();
 		  $data['post'] 	= $this->Model_post->getData();
+		  $data ['categories_ask'] = $this->Model_ask_categories->Get();
+		  $data ['ask_no_answered'] = $this->Model_ask->Get();
 		 
           $this->template->load('beranda/Beranda','beranda/data/Beranda', $data);
       }else{

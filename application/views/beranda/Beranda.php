@@ -358,55 +358,22 @@
 									</div><!--widget-about end-->
 									<div class="widget widget-jobs">
 										<div class="sd-title">
-											<h3>Top Jobs</h3>
+											<h3>Top Ask</h3>
 											<i class="la la-ellipsis-v"></i>
 										</div>
 										<div class="jobs-list">
+									<?php foreach ($ask_no_answered as $ask): ?>
 											<div class="job-info">
 												<div class="job-details">
-													<h3>Senior Product Designer</h3>
+										<a href="<?php echo site_url('ask/Ask/read/'.$ask->ask_id) ?>"><h3><?php echo $ask->ask_slug; ?></h3></a>
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
 												</div>
 												<div class="hr-rate">
 													<span>$25/hr</span>
 												</div>
 											</div><!--job-info end-->
-											<div class="job-info">
-												<div class="job-details">
-													<h3>Senior UI / UX Designer</h3>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-												</div>
-												<div class="hr-rate">
-													<span>$25/hr</span>
-												</div>
-											</div><!--job-info end-->
-											<div class="job-info">
-												<div class="job-details">
-													<h3>Junior Seo Designer</h3>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-												</div>
-												<div class="hr-rate">
-													<span>$25/hr</span>
-												</div>
-											</div><!--job-info end-->
-											<div class="job-info">
-												<div class="job-details">
-													<h3>Senior PHP Designer</h3>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-												</div>
-												<div class="hr-rate">
-													<span>$25/hr</span>
-												</div>
-											</div><!--job-info end-->
-											<div class="job-info">
-												<div class="job-details">
-													<h3>Senior Developer Designer</h3>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-												</div>
-												<div class="hr-rate">
-													<span>$25/hr</span>
-												</div>
-											</div><!--job-info end-->
+									<?php endforeach ?>
+											
 										</div><!--jobs-list end-->
 									</div><!--widget-jobs end-->
 									<div class="widget widget-jobs">
@@ -542,40 +509,31 @@
 			<div class="post-project">
 				<h3>Post a job</h3>
 				<div class="post-project-fields">
-					<form>
+					<form action="<?php echo site_url('ask/Ask/doPost') ?>" method="POST">
 						<div class="row">
+
 							<div class="col-lg-12">
-								<input type="text" name="title" placeholder="Title">
+								<input type="text" name="slug" placeholder="Title.....">
 							</div>
+							
 							<div class="col-lg-12">
 								<div class="inp-field">
-									<select>
-										<option>Category</option>
-										<option>Category 1</option>
-										<option>Category 2</option>
-										<option>Category 3</option>
+									<select name="categori">
+										<?php foreach ($categories_ask as $categori_ask) :?>
+										<option value="<?php echo $categori_ask->categories_ask_id; ?>">
+											<?php echo $categori_ask->categories_ask; ?>
+															
+										</option>
+										
+									<?php endforeach ?>
 									</select>
 								</div>
 							</div>
+							
+							
+						
 							<div class="col-lg-12">
-								<input type="text" name="skills" placeholder="Skills">
-							</div>
-							<div class="col-lg-6">
-								<div class="price-br">
-									<input type="text" name="price1" placeholder="Price">
-									<i class="la la-dollar"></i>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="inp-field">
-									<select>
-										<option>Full Time</option>
-										<option>Half time</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-lg-12">
-								<textarea name="description" placeholder="Description"></textarea>
+								<textarea name="ask" placeholder="Description"></textarea>
 							</div>
 							<div class="col-lg-12">
 								<ul>
